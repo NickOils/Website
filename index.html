@@ -39,7 +39,7 @@
             padding: 20px;
             text-align: center;
         }
-        .game-button {
+        .game-button, .link-button {
             background-color: blue;
             border: none;
             color: white;
@@ -63,6 +63,7 @@
         <a href="#music">Favorite Music</a>
         <a href="#game">Play a Game</a>
         <a href="#lore">Game Lore</a>
+        <a href="#links">Links</a>
     </nav>
     <section id="about">
         <h2>About Me</h2>
@@ -70,7 +71,7 @@
     </section>
     <section id="hobbies">
         <h2>Hobbies</h2>
-        <p>My favorite games are Red Dead Redemption, Skate 3, and i play fortnite. i also skate IRL. I'm perfecting my ollie and working on my pop shuvit rn.</p>
+        <p>I love playing FPS games and drifting games on Roblox. I'm also working on a roblox game called 'Oilstech' which features a sci-fi facility with various testing areas. I use roblox to make my games because scripting with lua is easy. I also know some html which is how i made this website!</p>
     </section>
     <section id="music">
         <h2>Favorite Music</h2>
@@ -86,11 +87,19 @@
         <h2>Game Lore</h2>
         <iframe src="https://docs.google.com/document/d/1z1TIbCajdQ94ls1demBzvre0cIv0AJ97y6ImKjMdHyk/preview" width="100%" height="600px"></iframe>
     </section>
+    <section id="links">
+        <h2>Links</h2>
+        <a href="https://www.roblox.com/games/11273271793/Facility" class="link-button" target="_blank">My Game!</a>
+        <a href="https://www.youtube.com/channel/UCYsm4QUkTN8RQFkLQkOlacA" class="link-button" target="_blank">My YouTube!</a>
+        <a href="https://web.roblox.com/groups/10548474" class="link-button" target="_blank">My Roblox Group!</a>
+    </section>
     <script>
         function startGame() {
             const gameArea = document.getElementById('game-area');
-            gameArea.innerHTML = "<p>Sorry More features coming soon...</p>";
+            gameArea.innerHTML = "<p>Sorry more features coming soon...</p>";
         }
     </script>
 </body>
 </html>
+
+
