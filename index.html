@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick's Personal Webpage</title>
+    <style>
+        body {
+            background-color: black;
+            color: silver;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: blue;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #333;
+        }
+        nav a {
+            color: silver;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+        }
+        .game-section {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+        }
+        .game-button {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Nick's Personal Webpage</h1>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#music">Favorite Music</a>
+        <a href="#game">Play a Game</a>
+    </nav>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Nick! I'm a middle school student based in North Carolina. I enjoy developing games on Roblox and have a keen interest in human anatomy.</p>
+    </section>
+    <section id="hobbies">
+        <h2>Hobbies</h2>
+        <p>I love playing FPS games and drifting games on Roblox. I'm also working on a unique game called 'Oilstech' which features a sci-fi facility with various testing areas.</p>
+    </section>
+    <section id="music">
+        <h2>Favorite Music</h2>
+        <p>I enjoy listening to a variety of music genres. Some of my favorite artists and bands include...</p>
+    </section>
+    <section id="game" class="game-section">
+        <h2>Play a Game</h2>
+        <p>Click the button below to start a fun game!</p>
+        <button class="game-button" onclick="startGame()">Start Game</button>
+        <div id="game-area"></div>
+    </section>
+
+    <script>
+        function startGame() {
+            const gameArea = document.getElementById('game-area');
+            gameArea.innerHTML = "<p>Welcome to the game! More features coming soon...</p>";
+        }
+    </script>
+</body>
+</html>
