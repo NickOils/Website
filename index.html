@@ -34,12 +34,7 @@
         section {
             padding: 20px;
         }
-        .game-section {
-            background-color: #222;
-            padding: 20px;
-            text-align: center;
-        }
-        .game-button, .link-button {
+        .link-button {
             background-color: blue;
             border: none;
             color: white;
@@ -51,22 +46,6 @@
             margin: 4px 2px;
             cursor: pointer;
         }
-        #game-area {
-            width: 500px;
-            height: 500px;
-            background-color: #111;
-            margin: 20px auto;
-            position: relative;
-        }
-        #player {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
     </style>
 </head>
 <body>
@@ -77,7 +56,6 @@
         <a href="#about">About Me</a>
         <a href="#hobbies">Hobbies</a>
         <a href="#music">Favorite Music</a>
-        <a href="#game">Play a Game</a>
         <a href="#lore">Game Lore</a>
         <a href="#links">Links</a>
     </nav>
@@ -93,14 +71,6 @@
         <h2>Favorite Music</h2>
         <p>I enjoy listening to a variety of music genres. Some of my favorite artists are Kanye West, Kendrick Lamar, and others of that type. I listen to Kanye so much more than others though.</p>
     </section>
-    <section id="game" class="game-section">
-        <h2>Play a Game</h2>
-        <p>Click the button below to start a fun game!</p>
-        <button class="game-button" onclick="startGame()">Start Game</button>
-        <div id="game-area" style="display: none;">
-            <div id="player"></div>
-        </div>
-    </section>
     <section id="lore">
         <h2>Game Lore</h2>
         <iframe src="https://docs.google.com/document/d/1z1TIbCajdQ94ls1demBzvre0cIv0AJ97y6ImKjMdHyk/preview" width="100%" height="600px"></iframe>
@@ -111,35 +81,5 @@
         <a href="https://www.youtube.com/channel/UCYsm4QUkTN8RQFkLQkOlacA" class="link-button" target="_blank">My YouTube!</a>
         <a href="https://web.roblox.com/groups/10548474" class="link-button" target="_blank">My Roblox Group!</a>
     </section>
-    <script>
-        function startGame() {
-            const gameArea = document.getElementById('game-area');
-            gameArea.style.display = 'block';
-            document.addEventListener('keydown', movePlayer);
-        }
-
-        function movePlayer(event) {
-            const player = document.getElementById('player');
-            const gameArea = document.getElementById('game-area');
-            const step = 10;
-            const playerRect = player.getBoundingClientRect();
-            const areaRect = gameArea.getBoundingClientRect();
-            
-            switch(event.key) {
-                case 'ArrowUp':
-                    if (playerRect.top > areaRect.top) player.style.top = `${player.offsetTop - step}px`;
-                    break;
-                case 'ArrowDown':
-                    if (playerRect.bottom < areaRect.bottom) player.style.top = `${player.offsetTop + step}px`;
-                    break;
-                case 'ArrowLeft':
-                    if (playerRect.left > areaRect.left) player.style.left = `${player.offsetLeft - step}px`;
-                    break;
-                case 'ArrowRight':
-                    if (playerRect.right < areaRect.right) player.style.left = `${player.offsetLeft + step}px`;
-                    break;
-            }
-        }
-    </script>
 </body>
 </html>
