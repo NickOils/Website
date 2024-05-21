@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nick's Personal Webpage</title>
+    <title>Nick's Website</title>
     <style>
         body {
             background-color: black;
@@ -51,11 +51,27 @@
             margin: 4px 2px;
             cursor: pointer;
         }
+        #game-area {
+            width: 500px;
+            height: 500px;
+            background-color: #111;
+            margin: 20px auto;
+            position: relative;
+        }
+        #player {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Nick's Personal Webpage</h1>
+        <h1>Welcome to Nick's Website</h1>
     </header>
     <nav>
         <a href="#about">About Me</a>
@@ -67,21 +83,23 @@
     </nav>
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I'm Nick! I'm a middle school student. Im 14yrs old and christian. i usually go by Nickoils, Nick_Oils or Nick Oils online because my name is Nicholas.</p>
+        <p>Hi, I'm Nick! I'm a middle school student. I'm 14 years old and Christian. I usually go by Nickoils or Nick_Oils online because my name is Nicholas.</p>
     </section>
     <section id="hobbies">
         <h2>Hobbies</h2>
-        <p>I love playing FPS games and Red Dead Redemption online. i also play skate 3 and fortnite. I'm also working on a Roblox game called 'OilsTech Facility' which features a sci-fi facility with various areas to explore, and do like science experiments. you cand find the link to in the links part of my page. I use roblox to make my games because scripting with lua is easy. I also know some html which is how i made this website!</p>
+        <p>I love playing FPS games and Red Dead Redemption online. I also play Skate 3 and Fortnite. I'm also working on a Roblox game called 'OilsTech Facility' which features a sci-fi facility with various areas to explore and do science experiments. You can find the link to it in the links part of my page. I use Roblox to make my games because scripting with Lua is easy. I also know some HTML which is how I made this website!</p>
     </section>
     <section id="music">
         <h2>Favorite Music</h2>
-        <p>I enjoy listening to a variety of music genres. Some of my favorite artists are kanye west, kendrick lamar, and others of that type. i listen to kanye so much more than others though.</p>
+        <p>I enjoy listening to a variety of music genres. Some of my favorite artists are Kanye West, Kendrick Lamar, and others of that type. I listen to Kanye so much more than others though.</p>
     </section>
     <section id="game" class="game-section">
         <h2>Play a Game</h2>
         <p>Click the button below to start a fun game!</p>
         <button class="game-button" onclick="startGame()">Start Game</button>
-        <div id="game-area"></div>
+        <div id="game-area" style="display: none;">
+            <div id="player"></div>
+        </div>
     </section>
     <section id="lore">
         <h2>Game Lore</h2>
@@ -96,10 +114,32 @@
     <script>
         function startGame() {
             const gameArea = document.getElementById('game-area');
-            gameArea.innerHTML = "<p>Sorry more features coming soon...</p>";
+            gameArea.style.display = 'block';
+            document.addEventListener('keydown', movePlayer);
+        }
+
+        function movePlayer(event) {
+            const player = document.getElementById('player');
+            const gameArea = document.getElementById('game-area');
+            const step = 10;
+            const playerRect = player.getBoundingClientRect();
+            const areaRect = gameArea.getBoundingClientRect();
+            
+            switch(event.key) {
+                case 'ArrowUp':
+                    if (playerRect.top > areaRect.top) player.style.top = `${player.offsetTop - step}px`;
+                    break;
+                case 'ArrowDown':
+                    if (playerRect.bottom < areaRect.bottom) player.style.top = `${player.offsetTop + step}px`;
+                    break;
+                case 'ArrowLeft':
+                    if (playerRect.left > areaRect.left) player.style.left = `${player.offsetLeft - step}px`;
+                    break;
+                case 'ArrowRight':
+                    if (playerRect.right < areaRect.right) player.style.left = `${player.offsetLeft + step}px`;
+                    break;
+            }
         }
     </script>
 </body>
 </html>
-
-
